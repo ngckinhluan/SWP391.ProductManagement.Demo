@@ -1,32 +1,36 @@
 ﻿using PMS.BusinessObjects.Entities;
+using PMS.Repositories.Interface;
 using PMS.Services.Interface;
 
 namespace PMS.Services.Implementation;
 
 public class SaleOrderService : ISaleOrderService
 {
-    public Task<IEnumerable<SaleOrder>> GetAllAsync()
+    private readonly IUnitOfWork _unitOfWork;
+
+    public SaleOrderService(IUnitOfWork unitOfWork)
     {
-        throw new NotImplementedException();
+        _unitOfWork = unitOfWork;
     }
 
-    public Task<SaleOrder?> GetByIdAsync(string id)
+    public async Task<IEnumerable<SaleOrder>> GetAllAsync() => await _unitOfWork.SaleOrders.GetAllAsync();
+    public async Task<SaleOrder?> GetByIdAsync(string id) => await _unitOfWork.SaleOrders.GetByIdAsync(id);
+
+    public async Task InsertAsync(SaleOrder entity)
     {
-        throw new NotImplementedException();
+        await _unitOfWork.SaleOrders.InsertAsync(entity);
+        await _unitOfWork.CompleteAsync();
     }
 
-    public Task InsertAsync(SaleOrder entity)
+    public async void Update(SaleOrder entity)
     {
-        throw new NotImplementedException();
+        _unitOfWork.SaleOrders.Update(entity);
+        await _unitOfWork.CompleteAsync();
     }
 
-    public void Update(SaleOrder entity)
+    public async void Delete(SaleOrder entity)
     {
-        throw new NotImplementedException();
-    }
-
-    public void Delete(SaleOrder entity)
-    {
-        throw new NotImplementedException();
+        _unitOfWork.SaleOrders.Delete(entity);
+        await _unitOfWork.CompleteAsync();
     }
 }

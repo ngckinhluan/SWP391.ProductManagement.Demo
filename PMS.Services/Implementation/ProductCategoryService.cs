@@ -1,32 +1,37 @@
 ﻿using PMS.BusinessObjects.Entities;
+using PMS.Repositories.Interface;
 using PMS.Services.Interface;
 
 namespace PMS.Services.Implementation;
 
 public class ProductCategoryService : IProductCategoryService
 {
-    public Task<IEnumerable<ProductCategory>> GetAllAsync()
+    private readonly IUnitOfWork _unitOfWork;
+
+    public ProductCategoryService(IUnitOfWork unitOfWork)
     {
-        throw new NotImplementedException();
+        _unitOfWork = unitOfWork;
     }
 
-    public Task<ProductCategory?> GetByIdAsync(string id)
+    public async Task<IEnumerable<ProductCategory>> GetAllAsync() => await _unitOfWork.ProductCategories.GetAllAsync();
+    public async Task<ProductCategory?> GetByIdAsync(string id) => await _unitOfWork.ProductCategories.GetByIdAsync(id);
+
+    public async Task InsertAsync(ProductCategory entity)
     {
-        throw new NotImplementedException();
+        await _unitOfWork.ProductCategories.InsertAsync(entity);
+        await _unitOfWork.CompleteAsync();
     }
 
-    public Task InsertAsync(ProductCategory entity)
+
+    public async void Update(ProductCategory entity)
     {
-        throw new NotImplementedException();
+        _unitOfWork.ProductCategories.Update(entity);
+        await _unitOfWork.CompleteAsync();
     }
 
-    public void Update(ProductCategory entity)
+    public async void Delete(ProductCategory entity)
     {
-        throw new NotImplementedException();
-    }
-
-    public void Delete(ProductCategory entity)
-    {
-        throw new NotImplementedException();
+        _unitOfWork.ProductCategories.Delete(entity);
+        await _unitOfWork.CompleteAsync();
     }
 }

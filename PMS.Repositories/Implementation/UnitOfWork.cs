@@ -12,15 +12,17 @@ public class UnitOfWork : IUnitOfWork
     
     public IProductRepository ProductRepository { get; }
     public IProductCategoryRepository ProductCategories { get; }
+    public ISaleOrderDetailRepository SaleOrderDetailRepository { get; }
 
     public UnitOfWork(MyDbContext context, IProductRepository productRepository, ICustomerRepository customerRepository,
-        ISaleOrderRepository saleOrderRepository, IProductCategoryRepository productCategoryRepository)
+        ISaleOrderRepository saleOrderRepository, IProductCategoryRepository productCategoryRepository, ISaleOrderDetailRepository saleOrderDetailRepository)
     {
         _context = context;
         Products = productRepository;
         Customers = customerRepository;
         SaleOrders = saleOrderRepository;
         ProductCategories = productCategoryRepository;
+        SaleOrderDetailRepository = saleOrderDetailRepository;
     }
 
     public async Task<int> CompleteAsync() => await _context.SaveChangesAsync();

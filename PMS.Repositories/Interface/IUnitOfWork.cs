@@ -6,7 +6,8 @@ public interface IUnitOfWork
     ICustomerRepository Customers { get; }
     ISaleOrderRepository SaleOrders { get; }
     IProductRepository ProductRepository { get; }
-    IProductCategoryRepository ProductCategories { get; }
+    IProductCategoryRepository ProductCategories { get; } 
+    ISaleOrderDetailRepository SaleOrderDetailRepository { get; }
     
     Task<int> CompleteAsync();
     void Dispose();

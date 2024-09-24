@@ -8,6 +8,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.BusinessObjects", "PMS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Services", "PMS.Services\PMS.Services.csproj", "{BB1F8652-38AD-4274-917E-7B808E590515}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.Shared", "PMS.Shared\PMS.Shared.csproj", "{5E5ABC97-BECC-418F-983B-F7D2C669E1FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMS.LoggerService", "PMS.LoggerService\PMS.LoggerService.csproj", "{4706ADC6-0D49-4B0C-978F-584B4F3BE0A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{BB1F8652-38AD-4274-917E-7B808E590515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB1F8652-38AD-4274-917E-7B808E590515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB1F8652-38AD-4274-917E-7B808E590515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E5ABC97-BECC-418F-983B-F7D2C669E1FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E5ABC97-BECC-418F-983B-F7D2C669E1FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E5ABC97-BECC-418F-983B-F7D2C669E1FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E5ABC97-BECC-418F-983B-F7D2C669E1FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4706ADC6-0D49-4B0C-978F-584B4F3BE0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4706ADC6-0D49-4B0C-978F-584B4F3BE0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4706ADC6-0D49-4B0C-978F-584B4F3BE0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4706ADC6-0D49-4B0C-978F-584B4F3BE0A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

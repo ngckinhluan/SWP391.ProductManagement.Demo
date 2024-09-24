@@ -18,4 +18,10 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\PMS.BusinessObjects\PMS.BusinessObjects.csproj" />
+      <ProjectReference Include="..\PMS.Repositories\PMS.Repositories.csproj" />
+      <ProjectReference Include="..\PMS.Services\PMS.Services.csproj" />
+    </ItemGroup>
+
 </Project>
