@@ -1,0 +1,12 @@
+﻿services:
+  swp391.productmanagement.demo:
+    image: swp391.productmanagement.demo
+    build:
+      context: .
+      dockerfile: SWP391.ProductManagement.Demo/Dockerfile
+
+  pms.api:
+    image: pms.api
+    build:
+      context: .
+      dockerfile: PMS.API/Dockerfile
