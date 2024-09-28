@@ -1,10 +1,13 @@
-﻿using PMS.BusinessObjects.Context;
+﻿using System.Data;
+using Microsoft.EntityFrameworkCore;
+using PMS.BusinessObjects.Context;
 using PMS.Repositories.Interface;
 
 namespace PMS.Repositories.Implementation;
 
 public class UnitOfWork : IUnitOfWork
 {
+    private bool disposed = false;
     private readonly MyDbContext _context;
     public IProductRepository Products { get; }
     public ICustomerRepository Customers { get; }
@@ -26,7 +29,27 @@ public class UnitOfWork : IUnitOfWork
     }
 
     public async Task<int> CompleteAsync() => await _context.SaveChangesAsync();
+    public void BeginTransaction() => _context.Database.BeginTransaction();
+    public void CommitTransaction() => _context.Database.CommitTransaction();
 
-    public void Dispose() => _context.Dispose();
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!disposed)
+        {
+            if (disposing)
+            {
+                _context.Dispose();
+            }
+        }
+        disposed = true;
+    }
+
+    public void RollBack() => _context.Database.RollbackTransaction();
 
 }

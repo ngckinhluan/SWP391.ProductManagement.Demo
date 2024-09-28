@@ -8,7 +8,9 @@ public interface IUnitOfWork
     IProductRepository ProductRepository { get; }
     IProductCategoryRepository ProductCategories { get; } 
     ISaleOrderDetailRepository SaleOrderDetailRepository { get; }
-    
     Task<int> CompleteAsync();
     void Dispose();
+    void BeginTransaction();
+    Task CommitAsync(); 
+    void Rollback();
 }

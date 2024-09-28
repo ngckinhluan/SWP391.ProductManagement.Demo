@@ -6,12 +6,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="DTO\Customer\" />
-      <Folder Include="DTO\ProductCategory\" />
-      <Folder Include="DTO\Product\" />
-      <Folder Include="DTO\SaleOrderDetail\" />
-      <Folder Include="DTO\SaleOrder\" />
-    </ItemGroup>
-
 </Project>
